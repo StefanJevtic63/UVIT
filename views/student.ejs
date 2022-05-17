@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title><%= title %></title>
+</head>
+<body>
+    <p>Dobrodosli, <%= student.name %></p>
+    <p>Smer: <%= student.major %></p>
+
+    <h3>Izmenite podatke</h3>
+
+    <form action="/student/update" method="POST">
+        <input type="hidden" value="<%= student.username %>" name="username">
+
+        <div>
+            <label>Lozinka</label>
+            <input type="password" name="password" value="<%= student.password %>">
+        </div>
+
+        <div>
+            <label>Ime</label>
+            <input type="text" name="name" value="<%= student.name %>">
+        </div>
+
+        <div>
+            <label>Smer</label>
+            <select name="major" id="major">
+                <option value="Informatics">Informatics</option>
+                <option value="Computer science">Computer science</option>
+                <option value="Proffesor of mathematics">Proffesor of mathematics</option>
+            </select>
+        </div>
+
+        <button type="submit">Izmenite podatke</button>
+    </form>
+
+</body>
+</html>

@@ -1,0 +1,15 @@
+h1{
+    color: rgb(23, 90, 190);
+    text-align: center;
+}
+
+body{
+    margin-left: 200px;
+    margin-right: 200px;
+}
+
+form{
+    background-color: #f2f2f2;
+    border-radius: 5px;
+    padding: 20px;
+}

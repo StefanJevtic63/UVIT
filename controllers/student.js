@@ -56,7 +56,23 @@ function updateStudentInfo(req, res, next){
     });
 }
 
+function deleteStudentByUsername(req, res, next){
+    const username = req.params.username;
+    const password = req.body.password;
+
+    const student = studentModel.getStudentByUsername(username);
+    if(student.password !== password){
+        res.render('error.ejs', { message: 'Neuspelo brisanje studenta, lozinka je pogresna.' });
+        return;
+    }
+
+    studentModel.deleteStudentByUsername(username);
+
+    res.redirect('/index.html');
+}
+
 module.exports = {
     getStudentByUsername,
-    updateStudentInfo
+    updateStudentInfo,
+    deleteStudentByUsername
 }

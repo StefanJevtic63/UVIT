@@ -35,5 +35,16 @@
         <button type="submit">Izmenite podatke</button>
     </form>
 
+    <h3>Obrisite podatke</h3>
+
+    <form action="/student/delete/<%= student.username %>" method="POST">
+        <div>
+            <label>Potvrdite lozinku:</label>
+            <input type="password" name="password">
+        </div>
+
+        <button type="submit">Obrisite podatke</button>
+    </form>
+
 </body>
 </html>

@@ -30,8 +30,26 @@ function updateStudentInfo(student){
     }
 }
 
+function deleteStudentByUsername(username){
+    let index = -1;
+    for(const i in students){
+        const student = students[i];
+        if(student.username === username){
+            index = i;
+            break;  //*******************//
+        }
+    }
+
+    if(index !== -1){
+        students.splice(index, 1); //brise studenta sa prosledjenim indeksom iz niza studenata
+    }
+
+    return;
+}
+
 module.exports = {
     getStudentByUsername,
     doPasswordsMatch,
-    updateStudentInfo
+    updateStudentInfo,
+    deleteStudentByUsername
 }

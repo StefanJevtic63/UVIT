@@ -14,5 +14,6 @@ router.get('/student', function(req, res, next){
 //Objekti za rutiranje treba da kazu koji kontroleri treba da obrade koje zahteve
 router.post('/student', studentController.getStudentByUsername);
 router.post('/student/update', studentController.updateStudentInfo);
+router.post('/student/delete/:username', studentController.deleteStudentByUsername);
  
 module.exports = router;

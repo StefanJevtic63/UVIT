@@ -1,0 +1,32 @@
+from pylab import *
+m = 0.2 # kg
+g = 9.81 # m/sˆ2
+vT = 20.0 # m/s
+h = 2.0 # m
+R = 0.1 # m
+k = 1000.0 # N/m
+r0 = array([0.0,h])
+v0 = array([10.0,10.0])
+time = 20.0 # s
+dt = 0.001 #
+n = int(round(time/dt))
+r = zeros((n,2),float)
+v = zeros((n,2),float)
+t = zeros(n,float)
+r[0] = r0
+t[0] = 0.0
+# Simulation loop
+for i in range(n):
+    if (r[i,1]<R):
+        N = k*(R-r[i,1])*array([0,1])
+    else:
+        N = array([0,0])
+        FD = - D*norm(v[i])*v[i]
+        G = -m*g*array([0,1])
+        Fnet = N + FD + G
+        a = Fnet/m
+v[i+1] = v[i] + a*dt
+r[i+1] = r[i] + v[i+1]*dt
+t[i+1] = t[i] + dt
+plot(r[:,0],r[:,1])
+xlabel(’x [m]’), ylabel(’y [m]’)
